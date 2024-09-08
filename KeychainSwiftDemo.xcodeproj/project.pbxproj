@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA3AA95E2C8B78F000F393A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA3AA95D2C8B78F000F393A6 /* README.md */; };
+		FABE6AFC2C8E5980002F0F87 /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE6AFB2C8E5980002F0F87 /* KeyManager.swift */; };
 		FAEB69582C8B77A80038F7E5 /* KeychainSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB69572C8B77A80038F7E5 /* KeychainSwiftDemoApp.swift */; };
 		FAEB695A2C8B77A80038F7E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB69592C8B77A80038F7E5 /* ContentView.swift */; };
 		FAEB695C2C8B77AA0038F7E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEB695B2C8B77AA0038F7E5 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		FA3AA95D2C8B78F000F393A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FABE6AFB2C8E5980002F0F87 /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
 		FAEB69542C8B77A80038F7E5 /* KeychainSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEB69572C8B77A80038F7E5 /* KeychainSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDemoApp.swift; sourceTree = "<group>"; };
 		FAEB69592C8B77A80038F7E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FABE6AFD2C8E5987002F0F87 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FABE6AFB2C8E5980002F0F87 /* KeyManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		FAEB694B2C8B77A80038F7E5 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 			children = (
 				FAEB69572C8B77A80038F7E5 /* KeychainSwiftDemoApp.swift */,
 				FAEB69652C8B77B60038F7E5 /* View */,
+				FABE6AFD2C8E5987002F0F87 /* Manager */,
 				FAEB695B2C8B77AA0038F7E5 /* Assets.xcassets */,
 				FAEB695D2C8B77AA0038F7E5 /* Preview Content */,
 			);
@@ -159,6 +170,7 @@
 			files = (
 				FAEB695A2C8B77A80038F7E5 /* ContentView.swift in Sources */,
 				FAEB69582C8B77A80038F7E5 /* KeychainSwiftDemoApp.swift in Sources */,
+				FABE6AFC2C8E5980002F0F87 /* KeyManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,15 +6,8 @@
 //
 
 import SwiftUI
-import KeychainSwift
-
-//GitHub
-//https://github.com/evgenyneu/keychain-swift
 
 struct ContentView: View {
-    private let keychainSwift = KeychainSwift()
-    private let key = "user_password"
-    
     @State private var password = ""
     @State private var newPassword = ""
     @State private var errorMessage: String?
@@ -27,7 +20,7 @@ struct ContentView: View {
             
             HStack(spacing: 10) {
                 Button(action: {
-                    setKey(newPassword)
+                    savePassword(newPassword)
                 }, label: {
                     Text("Save Password")
                         .padding()
@@ -37,7 +30,7 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
-                    getKey()
+                    getPassword()
                 }, label: {
                     Text("Get Password")
                         .padding()
@@ -47,7 +40,7 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
-                    deleteKey()
+                    deletePassword()
                 }, label: {
                     Text("Delete Password")
                         .padding()
@@ -73,22 +66,20 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
-            getKey()
+            getPassword() // Automatically fetch the password on appear
         }
     }
     
-    // Function to delete the saved password
-    private func deleteKey() {
-        keychainSwift.synchronizable = true
-        keychainSwift.delete(key)
+    // Function to delete the password using KeyManager
+    private func deletePassword() {
+        KeyManager.shared.deletePassword()
         password = ""
         errorMessage = "Password has been deleted."
     }
     
-    // Function to get the saved password from the keychain
-    private func getKey() {
-        keychainSwift.synchronizable = true
-        if let retrievedPassword = keychainSwift.get(key) {
+    // Function to retrieve the password using KeyManager
+    private func getPassword() {
+        if let retrievedPassword = KeyManager.shared.getPassword() {
             password = retrievedPassword
             errorMessage = nil
         } else {
@@ -96,11 +87,10 @@ struct ContentView: View {
         }
     }
     
-    // Function to set the new password in the keychain
-    private func setKey(_ value: String) {
-        keychainSwift.synchronizable = true
-        keychainSwift.set(value, forKey: key)
-        getKey()
+    // Function to save the password using KeyManager
+    private func savePassword(_ value: String) {
+        KeyManager.shared.savePassword(value)
+        getPassword() // Refresh UI after saving
     }
 }
 
