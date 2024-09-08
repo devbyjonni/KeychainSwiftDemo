@@ -1,38 +1,22 @@
-# KeychainSwiftDemo
+## KeychainSwiftDemo
 
-This project demonstrates how to use the **KeychainSwift** library to securely store, retrieve, and delete passwords using the keychain in a SwiftUI app.
+This project demonstrates how to securely store user credentials (such as passwords) using the **KeychainSwift** library.
 
-## Features
+### Features:
+- Store, retrieve, and delete passwords securely in the iOS Keychain.
+- **KeyManager Singleton**: Centralized key management using a singleton pattern for better reusability and maintainability.
 
-- Save a password securely in the keychain.
-- Retrieve the saved password.
-- Delete the password from the keychain.
-- Supports Keychain synchronization across devices.
+### Setup:
+1. Install **KeychainSwift** by adding it to your project using **Swift Package Manager**:
+   - URL: [https://github.com/evgenyneu/keychain-swift](https://github.com/evgenyneu/keychain-swift)
 
-## Getting Started
+2. The project uses `KeyManager`, a singleton that handles all Keychain operations. You can access the `KeyManager` instance like this:
 
-### Installation
+```swift
+KeyManager.shared.savePassword("your_password")
+let password = KeyManager.shared.getPassword()
+KeyManager.shared.deletePassword()
+```
 
-To use the **KeychainSwift** library, you can add it via Swift Package Manager:
-
-1. Open your project in Xcode.
-2. Go to **File** > **Swift Packages** > **Add Package Dependency**.
-3. Enter the following URL: `https://github.com/evgenyneu/keychain-swift`
-4. Choose the latest version and add it to your project.
-
-### Usage
-
-The app provides a simple UI with three buttons:
-1. **Save Password**: Saves the entered password to the keychain.
-2. **Get Password**: Retrieves and displays the saved password from the keychain.
-3. **Delete Password**: Deletes the password from the keychain.
-
-### Requirements
-
-- iOS 14.0+
-- Swift 5.0+
-
-### License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
+### Credits:
+This project uses the open-source library **KeychainSwift** created by [Evgenii Neumerzhitckii](https://github.com/evgenyneu/keychain-swift). Full documentation and more information about this library can be found [here](https://github.com/evgenyneu/keychain-swift).
